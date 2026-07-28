@@ -1,0 +1,30 @@
+{
+  "name": "frontend-project-46",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/frunastya/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/frunastya/frontend-project-46/actions)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frunastya/frontend-project-46.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frunastya/frontend-project-46/issues"
+  },
+  "homepage": "https://github.com/frunastya/frontend-project-46#readme",
+  "dependencies": {
+    "commander": "^15.0.0",
+    "js-yaml": "^5.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^10.8.0",
+    "jest": "^30.4.2"
+  }
+}
