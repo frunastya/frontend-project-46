@@ -1,5 +1,5 @@
 import fs from 'fs'
-import yaml from 'js-yaml'
+import * as  yaml from 'js-yaml'
 
 const genDiff = (file1, file2, format) => {
   const content1 = fs.readFileSync(file1, 'utf8')
