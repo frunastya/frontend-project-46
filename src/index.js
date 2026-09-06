@@ -24,7 +24,28 @@ const genDiff = (file1, file2, format) => {
     throw new Error(`Unsupported file format: ${file2}`)
   }
 
-  return 'Difference will be here'
+  const keys1 = Object.keys(data1)
+  const keys2 = Object.keys(data2)
+  const allKeys = [...keys1, ...keys2]
+  const uniqueKeys = new Set(allKeys)
+  const sortedKeys = [...uniqueKeys].sort()
+
+  const lines = []
+
+ for (const key of sortedKeys) {
+  if (!(key in data1)) {
+    lines.push(`  + ${key}: ${data2[key]}`)
+  } else if (!(key in data2)) {
+    lines.push(`  - ${key}: ${data1[key]}`)
+  } else if (data1[key] !== data2[key]) {
+    lines.push(`  - ${key}: ${data1[key]}`)
+    lines.push(`  + ${key}: ${data2[key]}`)
+  } else {
+    lines.push(`    ${key}: ${data1[key]}`)
+  }
+}
+
+return `{\n${lines.join('\n')}\n}`;
 }
 
 export default genDiff
