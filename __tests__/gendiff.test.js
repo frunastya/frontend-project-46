@@ -17,3 +17,14 @@ test('should compare flat JSON files correctly', () => {
 
   expect(result.trim()).toEqual(expected.trim());
 });
+
+test('should compare flat YAML files correctly', () => {
+  const file1 = path.join(__dirname, '__fixtures__', 'file1.yml');
+  const file2 = path.join(__dirname, '__fixtures__', 'file2.yml');
+  const expectedPath = path.join(__dirname, '__fixtures__', 'expected-yaml.txt');
+
+  const result = genDiff(file1, file2);
+  const expected = fs.readFileSync(expectedPath, 'utf8');
+
+  expect(result.trim()).toEqual(expected.trim());
+});
