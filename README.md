@@ -8,4 +8,4 @@ A CLI diff tool for configuration files (JSON, YAML).
 [![CI](https://github.com/frunastya/frontend-project-46/actions/workflows/main.yml/badge.svg)](https://github.com/frunastya/frontend-project-46/actions/workflows/main.yml)
 
 ## Demo
-[![asciicast](https://asciinema.org/a/Q3wVFp0oSIgKtnid.svg)](https://asciinema.org/a/Q3wVFp0oSIgKtnid)
+[![asciicast](https://asciinema.org/a/lnkKeiRYtrCBTvv6.svg)](https://asciinema.org/a/lnkKeiRYtrCBTvv6)
