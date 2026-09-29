@@ -1,6 +1,6 @@
 import fs from 'fs'
 import parse from './parsers.js'
-import formatStylish from './formatters/stylish.js'
+import format from './formatters/index.js'
 
 const isObject = (value) =>
   typeof value === 'object' && value !== null && !Array.isArray(value)
@@ -36,7 +36,7 @@ const buildDiff = (data1, data2) => {
   })
 }
 
-const genDiff = (file1, file2) => {
+const genDiff = (file1, file2, formatName = 'stylish') => {
   const content1 = fs.readFileSync(file1, 'utf8')
   const content2 = fs.readFileSync(file2, 'utf8')
 
@@ -45,7 +45,7 @@ const genDiff = (file1, file2) => {
 
   const diff = buildDiff(data1, data2)
 
-  return formatStylish(diff)
+  return format(diff, formatName)
 }
 
 export default genDiff

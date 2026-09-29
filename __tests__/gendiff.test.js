@@ -39,3 +39,14 @@ test('should compare nested JSON files correctly (stylish)', () => {
 
   expect(result.trim()).toEqual(expected.trim());
 });
+
+test('should compare nested JSON files correctly (plain)', () => {
+  const file1 = path.join(__dirname, '__fixtures__', 'nested-file1.json');
+  const file2 = path.join(__dirname, '__fixtures__', 'nested-file2.json');
+  const expectedPath = path.join(__dirname, '__fixtures__', 'nested-expected-plain.txt');
+
+  const result = genDiff(file1, file2, 'plain');
+  const expected = fs.readFileSync(expectedPath, 'utf8');
+
+  expect(result.trim()).toEqual(expected.trim());
+});
