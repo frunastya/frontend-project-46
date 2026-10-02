@@ -7,10 +7,10 @@ import genDiff from '../src/index.js'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-test('should compare flat JSON files correctly', () => {
+test('should compare nested JSON files correctly (stylish)', () => {
   const file1 = path.join(__dirname, '__fixtures__', 'file1.json')
   const file2 = path.join(__dirname, '__fixtures__', 'file2.json')
-  const expectedPath = path.join(__dirname, '__fixtures__', 'expected.txt')
+  const expectedPath = path.join(__dirname, '__fixtures__', 'expected-stylish.txt')
 
   const result = genDiff(file1, file2)
   const expected = fs.readFileSync(expectedPath, 'utf8')
@@ -18,21 +18,10 @@ test('should compare flat JSON files correctly', () => {
   expect(result.trim()).toEqual(expected.trim())
 })
 
-test('should compare flat YAML files correctly', () => {
+test('should compare nested YAML files correctly', () => {
   const file1 = path.join(__dirname, '__fixtures__', 'file1.yml')
   const file2 = path.join(__dirname, '__fixtures__', 'file2.yml')
-  const expectedPath = path.join(__dirname, '__fixtures__', 'expected-yaml.txt')
-
-  const result = genDiff(file1, file2)
-  const expected = fs.readFileSync(expectedPath, 'utf8')
-
-  expect(result.trim()).toEqual(expected.trim())
-})
-
-test('should compare nested JSON files correctly (stylish)', () => {
-  const file1 = path.join(__dirname, '__fixtures__', 'nested-file1.json')
-  const file2 = path.join(__dirname, '__fixtures__', 'nested-file2.json')
-  const expectedPath = path.join(__dirname, '__fixtures__', 'nested-expected-stylish.txt')
+  const expectedPath = path.join(__dirname, '__fixtures__', 'expected-stylish.txt')
 
   const result = genDiff(file1, file2)
   const expected = fs.readFileSync(expectedPath, 'utf8')
@@ -41,9 +30,9 @@ test('should compare nested JSON files correctly (stylish)', () => {
 })
 
 test('should compare nested JSON files correctly (plain)', () => {
-  const file1 = path.join(__dirname, '__fixtures__', 'nested-file1.json')
-  const file2 = path.join(__dirname, '__fixtures__', 'nested-file2.json')
-  const expectedPath = path.join(__dirname, '__fixtures__', 'nested-expected-plain.txt')
+  const file1 = path.join(__dirname, '__fixtures__', 'file1.json')
+  const file2 = path.join(__dirname, '__fixtures__', 'file2.json')
+  const expectedPath = path.join(__dirname, '__fixtures__', 'expected-plain.txt')
 
   const result = genDiff(file1, file2, 'plain')
   const expected = fs.readFileSync(expectedPath, 'utf8')
@@ -52,9 +41,9 @@ test('should compare nested JSON files correctly (plain)', () => {
 })
 
 test('should compare nested JSON files correctly (json)', () => {
-  const file1 = path.join(__dirname, '__fixtures__', 'nested-file1.json')
-  const file2 = path.join(__dirname, '__fixtures__', 'nested-file2.json')
-  const expectedPath = path.join(__dirname, '__fixtures__', 'nested-expected-json.txt')
+  const file1 = path.join(__dirname, '__fixtures__', 'file1.json')
+  const file2 = path.join(__dirname, '__fixtures__', 'file2.json')
+  const expectedPath = path.join(__dirname, '__fixtures__', 'expected-json.txt')
 
   const result = genDiff(file1, file2, 'json')
   const expected = fs.readFileSync(expectedPath, 'utf8')
